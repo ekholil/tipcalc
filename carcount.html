@@ -61,11 +61,13 @@
         })
         calc.addEventListener('click', function(){
             let bill = parseInt(input.value)
-            let final = Math.floor(bill)
+            console.log(bill)
+            let final = (bill * tipamount) - bill;
+            console.log(final)
             if(bill === NaN){
                 container.innerHTML = `Enter A Positive number`;
             } else{
-                container.innerHTML = `<h1>Tip amount is ${(final * tipamount) - final}</h1>`;
+                container.innerHTML = `<h1>Tip amount is ${Math.floor(final)}</h1>`;
             }
             
         })
