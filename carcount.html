@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tip:focus{
+            border: 3px solid red;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .box{
+            width: 400px;
+            padding: 20px;
+        }
+        input{
+            width: 100%;
+            font-size: 2rem;
+        }
+        button{
+            padding: 10px 20px;
+            font-size: 1.5rem;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <h1>Tip Calculator</h1>
+    <input type="text" id="input"> <br> <br>
+    <button class="tip" id="ten">10%</button>
+    <button class="tip" id="twen">20%</button>
+    <br> <br>
+    <button id="calc">Calculate</button>
+    <div id="container">
+        <h2 id="tip"></h2>
+    </div>
+    </div>
+    <script>
+        const input = document.getElementById('input')
+        const ten = document.getElementById('ten')
+        const twen = document.getElementById('twen')
+        const calc = document.getElementById('calc')
+        let tipamount;
+        
+        const container = document.getElementById('container')
+        ten.addEventListener('click', function(){
+            tipamount = 1.10;
+        })
+        twen.addEventListener('click', function(){
+            tipamount = 1.20;     
+        })
+        calc.addEventListener('click', function(){
+            let bill = parseInt(input.value)
+            let final = Math.floor(bill)
+            if(bill === NaN){
+                container.innerHTML = `Enter A Positive number`;
+            } else{
+                container.innerHTML = `<h1>Tip amount is ${(final * tipamount) - final}</h1>`;
+            }
+            
+        })
+    </script>
+</body>
+</html>
